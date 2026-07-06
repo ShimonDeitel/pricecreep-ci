@@ -138,7 +138,10 @@ final class CreepUITests: XCTestCase {
         nameField.typeText("Test")
         XCTAssertTrue(app.keyboards.element.exists)
 
-        app.navigationBars.firstMatch.tap()
+        // Tap the form's section header (within the Form's own hit region,
+        // where dismissKeyboardOnTap is actually attached) — "New Staple"
+        // is distinct from the nav title "New Item" so this is unambiguous.
+        app.staticTexts["New Staple"].tap()
         XCTAssertFalse(app.keyboards.element.exists, "Keyboard did not dismiss on tap-outside")
     }
 }
