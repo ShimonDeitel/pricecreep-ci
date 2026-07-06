@@ -1,0 +1,29 @@
+{
+  "identifier" : "creep",
+  "nonRenewingSubscriptions" : [],
+  "products" : [
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "creep_pro_unlock",
+      "localizations" : [
+        {
+          "description" : "Unlocks unlimited tracked items and full price history",
+          "displayName" : "Creep Pro",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "creep_pro_unlock",
+      "referenceName" : "Creep Pro Unlock",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_askToBuyEnabled" : false
+  },
+  "subscriptionGroups" : [],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

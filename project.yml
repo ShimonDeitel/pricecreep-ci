@@ -1,0 +1,75 @@
+name: Creep
+options:
+  bundleIdPrefix: com.shimondeitel.pricecreep
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: "W7Q885Q59C"
+    CODE_SIGN_STYLE: Automatic
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+targets:
+  Creep:
+    type: application
+    platform: iOS
+    sources:
+      - path: Creep
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.pricecreep
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: Creep/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: "YES"
+        GENERATE_INFOPLIST_FILE: "NO"
+  CreepTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: CreepTests
+      - path: Creep.storekit
+    dependencies:
+      - target: Creep
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.pricecreep.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+  CreepUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: CreepUITests
+    dependencies:
+      - target: Creep
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.pricecreep.uitests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  Creep:
+    build:
+      targets:
+        Creep: all
+        CreepTests: [test]
+        CreepUITests: [test]
+    run:
+      config: Debug
+      storeKitConfiguration: Creep.storekit
+    test:
+      config: Debug
+      storeKitConfiguration: Creep.storekit
+      targets:
+        - CreepTests
+        - CreepUITests
+    archive:
+      config: Release
