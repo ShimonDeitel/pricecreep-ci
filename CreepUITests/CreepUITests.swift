@@ -32,7 +32,8 @@ final class CreepUITests: XCTestCase {
 
     func testHomeShowsCreepIndexOnLaunch() throws {
         let app = launchApp()
-        XCTAssertTrue(app.otherElements["creepIndexGauge"].waitForExistence(timeout: 12), "Creep index gauge did not appear on launch")
+        let gauge = app.descendants(matching: .any).matching(identifier: "creepIndexGauge").firstMatch
+        XCTAssertTrue(gauge.waitForExistence(timeout: 12), "Creep index gauge did not appear on launch")
     }
 
     func testSeedItemsAppear() throws {
