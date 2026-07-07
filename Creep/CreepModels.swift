@@ -35,7 +35,7 @@ struct GroceryItem: Identifiable, Codable, Equatable {
     /// Percent change from the first logged price to the latest — the core
     /// "price creep" metric. Positive means the price has crept up.
     var creepPercent: Double? {
-        guard let first = firstPrice, let latest = latestPrice, first > 0 else { return nil }
+        guard entries.count >= 2, let first = firstPrice, let latest = latestPrice, first > 0 else { return nil }
         return ((latest - first) / first) * 100
     }
 
